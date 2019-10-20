@@ -1,12 +1,36 @@
 body {
     height: 100vh;
+    background-image: url("../images/mapBackground.jpg");
+    background-repeat: cover;
 }
 
 header {
     background-image: url("../images/TollTally\ Logo.png");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 6%;
     background-color: rgb(47,81,255);
     height: 12%;
     border-bottom: 2px solid black;
+}
+
+form {
+    background-color: whitesmoke;
+    width: 70%;
+    margin: 2% auto;
+    border: 2px solid black;
+}
+
+.btn {
+    background-color: rgb(47,81,255);
+    margin: 1% auto 1% 5%;
+}
+
+.form-control {
+    width: 90%;
+    margin: auto;
+}
+
+.formLabel, .form-text {
+    margin: 1% auto 0 5%;
 }

@@ -16,31 +16,42 @@
             <!-- logo added here in css -->
         </header>
         <main>
-            <form>
-                <!-- Origin (starting location) input field -->
-                <div class="form-group">
-                    <label for="originInput">Starting Location:</label>
-                    <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp" placeholder="Enter starting location">
-                    <small id="locationHelp" class="form-text text-muted">We'll never share your location with anyone else.</small>
-                </div>
-                <!-- Destination (ending location) input field -->
-                <div class="form-group">
-                    <label for="destinationInput">Ending Location:</label>
-                    <input type="text" class="form-control" id="destinationInput" placeholder="Enter ending location">
-                </div>
-                <!-- Frequency input field -->
-                <div class="form-group">
-                    <label for="frequencyInput">Trip Frequency:</label>
-                    <input type="text" class="form-control" id="frequencyInput" placeholder="Enter trip frequency">
-                </div>
-                <!-- Duration input field -->
-                <div class="form-group">
-                    <label for="destinationInput">Frequency Duration:</label>
-                    <input type="text" class="form-control" id="durationInput" placeholder="Enter duration to calculate for">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
+            <!-- holds initial form that the user enters information into -->
+            <div id="inputContainer">
+                <form>
+                    <!-- Origin (starting location) input field -->
+                    <div class="form-group">
+                        <label class="formLabel" for="originInput">Starting Location:</label>
+                        <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp" placeholder="Enter starting location">
+                        <small id="locationHelp" class="form-text text-muted">We'll never share your location with anyone else.</small>
+                    </div>
+                    <!-- Destination (ending location) input field -->
+                    <div class="form-group">
+                        <label class="formLabel" for="destinationInput">Ending Location:</label>
+                        <input type="text" class="form-control" id="destinationInput" placeholder="Enter ending location">
+                    </div>
+                    <!-- Frequency input field -->
+                    <div class="form-group">
+                        <label class="formLabel" for="frequencyInput">Trip Frequency:</label>
+                        <!-- ***need to validation to ensure entry is integer -->
+                        <input type="text" class="form-control" id="frequencyInput" placeholder="Enter number of trips per week">
+                    </div>
+                    <!-- Duration input field -->
+                    <div class="form-group">
+                        <label class="formLabel" for="durationInput">Frequency Until:</label>
+                        <input type="text" class="form-control" id="durationInput" placeholder="Enter duration to calculate for">
+                    </div>
+                    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <!-- holds the form that's shown while calculating -->
+            <div id="calculationContainer">
+
+            </div>
+            <!-- holds the post calculation / result form -->
+            <div id="resultContainer">
+
+            </div>
         </main>
         <footer>
             
