@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+}
+
+header {
+    background-image: url("../images/TollTally\ Logo.png");
+    background-repeat: no-repeat;
+    background-size: 6%;
+    background-color: rgb(47,81,255);
+    height: 12%;
+    border-bottom: 2px solid black;
+}
