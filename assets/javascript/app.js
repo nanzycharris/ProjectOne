@@ -38,11 +38,66 @@ var settings = {
     destinationInput : function() {
     // data validation / autocomplete for destination input
 
+  function initialize() {
+
+        //INITIALIZE GLOBAL VARIABLES
+        var zipCodesToLookup1 = new Array(document.getElementById("PortZip").value, document.getElementById("ImporterZip").value, document.getElementById("ExporterZip").value, document.getElementById("PortZip").value);
+        var output           = '<tr><th scope="col">From</th><th scope="col">To</th><th scope="col">Miles</th></tr>';
+        var difference = "0";
+        var totalDist = 0;
+        console.log(zipCodesToLookup1);
+        // document.write(difference);
+        //EXECUTE THE DISTANCE MATRIX QUERY
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix({
+            origins:      zipCodesToLookup1,
+            destinations: zipCodesToLookup1,
+            travelMode:   google.maps.TravelMode.DRIVING,
+            unitSystem:   google.maps.UnitSystem.IMPERIAL
+            }, function(response, status) {
+            if(status == google.maps.DistanceMatrixStatus.OK) {
+                var origins = response.originAddresses;
+                var destinations = response.destinationAddresses;
+                for(var i=0; i < origins.length-1; i++) {
+                    var results = response.rows[i].elements;
+                    output += '<tr><td>' + origins[i] + '</td><td>' + destinations[i+1] + '</td><td>' + results[i+1].distance.text + '</td></tr>';
+                    if (i != 0){
+                        totalDist += results[i+1].distance.value;
+                    }
+                    else {
+                        totalDist -= results[i+1].distance.value;
+                    }
+
+                }
+                output += '<tr><td></td><td>OUT OF ROUTE DISTANCE -</td><td>'+(totalDist/1000*0.621371).toFixed(0)+ ' mi</td></tr>';
+
+
+                document.getElementById('zip_code_output').innerHTML = '<table cellpadding="5">' + output + '</table>';
+            }
+        });
+    }
+
+    //FUNCTION TO LOAD THE GOOGLE MAPS API
+    function loadScript() {
+        var script  = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "http://maps.googleapis.com/maps/api/js?key=WKovB7gOJC47zEomeAr3l7fQRRamCWAb6Ski8tIo";
+        document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+
+    </script>
+//Add the ids to form element and remove the quotation in array.
     },
 
     // frequency input field related methods
     frequencyInput : function() {
     // JQueryUI dropdown for frequency
+<script>
+  
+
+<body>
 
     },
 
@@ -54,8 +109,8 @@ var settings = {
 
     // status bar that shows progress of calculation
     statusBar : function() {
-    // JQueryUI status bar while app is calculating
-var counter_list = [10,10000,10000];
+
+    var counter_list = [10,10000,10000];
     var str_counter_0 = counter_list[0];
     var str_counter_1 = counter_list[1];
     var str_counter_2 = counter_list[2];
@@ -86,14 +141,14 @@ var counter_list = [10,10000,10000];
     },1000);
   }
 </script>
+    // JQueryUI status bar while app is calculating
+
     },
 
 
 }
 
 tollTallyApp.initialize();
-
-
 
 
 
