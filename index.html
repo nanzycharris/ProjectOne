@@ -1,115 +1,144 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="TollTally Web Application">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TollTally</title>
-        <!-- MomentJS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <!-- Local CSS -->
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="TollTally Web Application">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TollTally</title>
+    <!-- MomentJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
         <header>
             <!-- logo added here in css -->
+            <div class="text-center">
+                <img src="./assets/images/TollTally Logo.png" class="card-img-top" alt="lotoTT">
+            </div>
         </header>
-        <main>
-            <form>
-                <!-- Origin (starting location) input field -->
-                <div class="form-group">
-                    <label for="originInput">Starting Location:</label>
-                    <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp" placeholder="Enter starting location">
-                    <small id="locationHelp" class="form-text text-muted">We'll never share your location with anyone else.</small>
-                </div>
-                <!-- Destination (ending location) input field -->
-                <div class="form-group">
-                    <label for="destinationInput">Ending Location:</label>
-                    <input type="text" class="form-control" id="destinationInput" placeholder="Enter ending location">
-                </div>
-                <!-- Frequency input field -->
-                <div class="form-group">
-                    <label for="frequencyInput">Trip Frequency:</label>
-                    <input type="text" class="form-control" id="frequencyInput" placeholder="Enter trip frequency">
-                </div>
-                <!-- Duration input field -->
-                <div class="form-group">
-                    <label for="destinationInput">Frequency Duration:</label>
-                    <input type="text" class="form-control" id="durationInput" placeholder="Enter duration to calculate for">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
+        <div class="wrapper">
+            <main>
+                <br>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Origin (starting location) input field -->
+                            <div class="form-group">
+                                <label for="originInput">Starting Location:</label>
+                                <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp"
+                                    placeholder="Enter starting location">
+                                <small id="locationHelp" class="form-text text-muted">We'll never share your location
+                                    with
+                                    anyone
+                                    else.</small>
+                            </div>
+                        </div>
+                        <!-- Destination (ending location) input field -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="destinationInput">Ending Location:</label>
+                                <input type="text" class="form-control" id="destinationInput"
+                                    placeholder="Enter ending location">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frequency input field -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="frequencyInput">Trip Frequency:</label>
+                                <input type="text" class="form-control" id="frequencyInput"
+                                    placeholder="Enter trip frequency">
+                            </div>
+                        </div>
+                        <!-- Duration input field -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="destinationInput">Frequency Duration:</label>
+                                <input type="text" class="form-control" id="durationInput"
+                                    placeholder="Enter duration to calculate for">
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
         </main>
-        <footer>
-            
-        </footer>
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!-- JQueryUI -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <!-- Local JS -->
-        <script src="assets/javascript/app.js"></script>
-        
-        
-$("button").on("click", function() {
+    </div>
+    <footer>
 
-    // In this case, the "this" keyword refers to the button that was clicked
-    var GoogleMaps = $(this).attr("data-Googlemaps");
+    </footer>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- JQueryUI -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Local JS -->
+    <script src="assets/javascript/app.js"></script>
+    <!--
+        $("button").on("click", function() {
 
-    
-    // In this case, the "this" keyword refers to the button that was clicked
-    var TollGuru = $(this).attr("data-Googlemaps");
+        // In this case, the "this" keyword refers to the button that was clicked
+        var GoogleMaps = $(this).attr("data-Googlemaps");
 
 
-  // Constructing a URL to obtain information from google maps and toll guru 
-
-    var queryURL = "website of google maps API" +
-      GoogleMaps + "&api_key=__________________";
-      
-    var queryURL = "website of Toll Guru API" +
-    TollGuru + "&api_key=__________________";
+        // In this case, the "this" keyword refers to the button that was clicked
+        var TollGuru = $(this).attr("data-Googlemaps");
 
 
-   // <!--use Ajax to pull data -->
-   $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
- // After the data comes back from the API
- .then(function(response) {
+        // Constructing a URL to obtain information from google maps and toll guru
+
+        var queryURL = "website of google maps API" +
+        GoogleMaps + "&api_key=__________________";
+
+        var queryURL = "website of Toll Guru API" +
+        TollGuru + "&api_key=__________________";
+
+ -->
+    <!--use Ajax to pull data 
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        // After the data comes back from the API
+        .then(function(response) {
         // Storing an array of results in the results variable
         var results = response.data;
 
         // Looping over every result item
-        for (var i = 0; i < results.length; i++) {
-        }
- }
+        for (var i = 0; i
+        < results.length; i++) { } } <script /> -->
 
-    <script/>
-        
-    </body>
-  <!-- Requirements / Keeping track of what's done / General notes for the team -->
+</body>
 
-    <!-- Use atleast two APIs -->
-    <!-- TollGuru, GoogleMaps -->
-    <!-- Use AJAX to pull data -->
-    <!-- Use at least one new library or technology that we haven't discussed -->
-    <!-- JQueryUI, Moment.JS, maybe more -->
-    <!-- Create a polished front end/UI -->
-    <!-- Meet good quality coding standards (indentation, scoping, naming, etc.) -->
-    <!-- Do NOT use alerts, confirms. or prompts (look into modals) -->
-    <!-- Incorporate some sort of repeating element (table, columns, etc.) -->
-    <!-- We can put a table linked to Firebase showing recent predicted savings-->
-    <!-- Use Bootstrap or an alternative CSS framework -->
-    <!-- Lets try out Materialize instead of Bootstrap -->
-    <!-- Deploy your site to GitHub Pages -->
-    <!-- Nancy can you knock this out so we have one less thing to worry about -->
-    <!-- Include user input validation-->
-    <!-- Utilize Firebase for persistant data storage -->
-    <!-- Make your site mobile responsive -->
-    <!-- We can use JqueryUI for a date picker (calendar where you click the date) and 
+</html>
+<!--Requirements / Keeping track of what's done / General notes for the team -->
+
+<!-- Use atleast two APIs -->
+<!-- TollGuru, GoogleMaps -->
+<!-- Use AJAX to pull data -->
+<!-- Use at least one new library or technology that we haven't discussed -->
+<!-- JQueryUI, Moment.JS, maybe more -->
+<!-- Create a polished front end/UI -->
+<!-- Meet good quality coding standards (indentation, scoping, naming, etc.) -->
+<!-- Do NOT use alerts, confirms. or prompts (look into modals) -->
+<!-- Incorporate some sort of repeating element (table, columns, etc.) -->
+<!-- We can put a table linked to Firebase showing recent predicted savings-->
+<!-- Use Bootstrap or an alternative CSS framework -->
+<!-- Lets try out Materialize instead of Bootstrap -->
+<!-- Deploy your site to GitHub Pages -->
+<!-- Nancy can you knock this out so we have one less thing to worry about -->
+<!-- Include user input validation-->
+<!-- Utilize Firebase for persistant data storage -->
+<!-- Make your site mobile responsive -->
+<!-- We can use JqueryUI for a date picker (calendar where you click the date) and 
                 a status bar while our app is working. Link to site https://jqueryui.com/progressbar/ -->
-    
+
 </html>
