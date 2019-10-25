@@ -16,62 +16,84 @@
 <body>
     <div class="container">
         <header>
-            <!-- logo added here in css -->
-            <div class="text-center">
-                <img src="./assets/images/TollTally Logo.png" class="card-img-top" alt="lotoTT">
+            <div class="row">
+                <!-- logo added here in css -->
+                <div class="col-sm-1"></div>
+                <div class="col-md-9">
+                    <h3>Calculate and predict your routinely transportation expenses within the Dallas-Fort Worth area.
+                        Get a hold of your
+                        finances by getting the big picture of your commute costs. While you work hard for your money,
+                        you can leave the guesswork of you toll expenditures to TollTally!
+                    </h3>
+                </div>
+                <div class="col-sm-1">
+                    <img src="./assets/images/TollTally Logo.png" class="card-img-top" alt="lotoTT">
+                </div>
             </div>
         </header>
-        <div class="wrapper">
-            <main>
-                <br>
+        <div class="row"> <br> </div>
+        <main>
+            <div class="row">
+                <div class="col-md-6">
+                    <br>
+                    <!---The big logo image goes here-->
+                </div>
                 <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Origin (starting location) input field -->
-                            <div class="form-group">
-                                <label for="originInput">Starting Location:</label>
-                                <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp"
-                                    placeholder="Enter starting location">
-                                <small id="locationHelp" class="form-text text-muted">We'll never share your location
-                                    with
-                                    anyone
-                                    else.</small>
+                    <div class="wrapper">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- Origin (starting location) input field -->
+                                <div class="form-group">
+                                    <label for="originInput">Starting Location:</label>
+                                    <input type="text" class="form-control" id="originInput"
+                                        aria-describedby="locationHelp" placeholder="Enter starting location">
+                                    <small id="locationHelp" class="form-text text-muted">We'll never share your
+                                        location
+                                        with
+                                        anyone
+                                        else.</small>
+                                </div>
+                            </div>
+                            <!-- Destination (ending location) input field -->
+                            <div class="col-sm-6">
+                                <div class=" form-group">
+                                    <label for="destinationInput">Ending Location:</label>
+                                    <input type="text" class="form-control" id="destinationInput"
+                                        placeholder="Enter ending location">
+                                </div>
                             </div>
                         </div>
-                        <!-- Destination (ending location) input field -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="destinationInput">Ending Location:</label>
-                                <input type="text" class="form-control" id="destinationInput"
-                                    placeholder="Enter ending location">
+                        <!-- Frequency input field -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="frequencyInput">Trip Frequency:</label>
+                                    <input type="text" class="form-control" id="frequencyInput"
+                                        placeholder="Enter trip frequency">
+                                </div>
+                            </div>
+                            <!-- Duration input field -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="destinationInput">Frequency Duration:</label>
+                                    <input type="text" class="form-control" id="durationInput"
+                                        placeholder="Enter duration to calculate for">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Frequency input field -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="frequencyInput">Trip Frequency:</label>
-                                <input type="text" class="form-control" id="frequencyInput"
-                                    placeholder="Enter trip frequency">
-                            </div>
-                        </div>
-                        <!-- Duration input field -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="destinationInput">Frequency Duration:</label>
-                                <input type="text" class="form-control" id="durationInput"
-                                    placeholder="Enter duration to calculate for">
-                            </div>
-                        </div>
-                    </div>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
+                </form>
+            </div>
         </main>
+    </div>
+
+    <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
     </div>
     <footer>
 
