@@ -1,55 +1,39 @@
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
 body {
     height: 100vh;
-    background-image: url("../images/mapbackground1024by800.jpg");
-}
-
-.container {
-    width: 100%;
-}
-
-h3 {
-    color: white;
-    font-size: 22px;
+    background-image: url("../images/map\ background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
-    align-items: center;
-    background-color:  rgb(47,81,255);
-    height: 155px;
-    border: 1px solid rgb(97, 95, 95)
+    background-image: url("../images/TollTally\ Logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(47,81,255);
+    height: 12%;
+    border-bottom: 0.5px solid black;
 }
 
-img {
-    width: 125px;
-    height: 125px;
+form {
+    background-color: whitesmoke;
+    width: 70%;
+    margin: 2% auto;
+    border: 0.5px solid black;
 }
 
-.row {
-    margin: 15px;
-    padding-bottom: 10px;
+footer {
+
+}
+.btn {
+    background-color: rgb(47,81,255);
+    margin: 1% auto 1% 5%;
 }
 
-
-.form-group {
-    color: white;
-    font-size: 16px;
+.form-control {
+    width: 90%;
+    margin: auto;
 }
 
-#locationHelp {
-    color: white;
-}
-
-.wrapper {
-    float: right;
-    background-color: rgba(47, 82, 255, 0.829);
-}
-
-#btnSubmit {
-    background-color: rgb(240, 240, 14);
-    color: rgb(252, 105, 7);
-    font-weight: bold;
+.formLabel, .form-text {
+    margin: 1% auto 0 5%;
 }
