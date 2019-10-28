@@ -7,74 +7,106 @@
         <title>TollTally</title>
         <!-- MomentJS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+        <!-- Google Maps API -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX-zoE2bM43iSCFsZHCgdzog3iQ31u04k&libraries=places"></script>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!-- Local CSS -->
         <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     </head>
     <body>
-        <header>
-            <!-- logo added here in css -->
-        </header>
-        <main>
-            <!-- holds initial form that the user enters information into -->
-            <div id="inputContainer">
-                <form>
+        <!-- holds initial form that the user enters information into -->
+        <div id="inputContainer" class="container">
+            <div class="card"> 
+                <div id="alignCenter">
+                    <img src="assets/images/TollTally Logo.png" class="card-img-top" id="logo">      
+                    <h5 class="card-title">Calculate and predict your routinely 
+                        transportation expenses within the Dallas-Fort Worth area. 
+                        Get a hold of your finances by getting the big picture of 
+                        your commute costs. While you work hard for your money, 
+                        you can leave the guesswork of you toll expenditures to 
+                        TollTally!</h5>     
+                    <hr>   
+                </div>   
+                <div class="card-body">
                     <!-- Origin (starting location) input field -->
-                    <div class="form-group">
+                    <div class="form-group" id="formOrigin">
                         <label class="formLabel" for="originInput" id='originLabel'">Starting Location:</label>
-                        <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp" placeholder="Enter starting location">
-                        <small id="locationHelp" class="form-text text-muted">We'll never share your location with anyone else.</small>
+                        <input type="text" class="form-control query" id="originInput" aria-describedby="locationHelp" placeholder="Enter starting location">
+                        <small id="locationNote" class="form-text text-muted">*We'll never share your location with anyone else.</small>
                     </div>
+
                     <!-- Destination (ending location) input field -->
-                    <div class="form-group">
+                    <div class="form-group" id="formDestination">
                         <label class="formLabel" for="destinationInput" id='destinationLabel'>Ending Location:</label>
-                        <input type="text" class="form-control" id="destinationInput" placeholder="Enter ending location">
+                        <input type="text" class="form-control query" id="destinationInput" placeholder="Enter ending location">
                     </div>
+
                     <!-- Frequency input field -->
-                    <div class="form-group">
+                    <div class="form-group" id="formFrequency">
                         <label class="formLabel" for="frequencyInput" id="frequencyLabel">Trip Frequency:</label>
-                        <input type="text" class="form-control" id="frequencyIntInput" placeholder="Enter number of trips">
-                        <select  id="frequencyTypeInput">
-                            <option value="frequencyBlank"></option>
+                        <input type="text" class="form-control" id="frequencyIntInput" placeholder="Enter number of trips per selected period">
+                        <select required id="frequencyTypeInput" class="form-control">
+                            <option value="" selected disabled hidden>Select period</option>
                             <option value="day">Day</option>
                             <option value="week">Week</option>
                             <option value="month">Month</option>
                             <option value="year">Year</option>
                         </select>
                     </div>
+
                     <!-- Duration input field -->
-                    <div class="form-group">
+                    <div class="form-group" id="formDuration">
                         <label class="formLabel" for="durationInput" id='durationLabel'>Frequency Duration:</label>
-                        <input type="text" class="form-control" id="durationIntInput" placeholder="Enter duration to calculate for">
-                        <select  id="durationTypeInput">
-                            <option value="DurationBlank"></option>
+                        <input type="text" class="form-control" id="durationIntInput" placeholder="Enter number of periods to calculate for">
+                        <select required id="durationTypeInput" class="form-control">
+                            <option value="" selected disabled hidden>Select period</option>
                             <option value="days">Days</option>
                             <option value="weeks">Weeks</option>
                             <option value="months">Months</option>
                             <option value="years">Years</option>
                         </select>
                     </div>
-                    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                    <button id="submitButton" type="button" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-            <!-- holds the form that's shown while calculating -->
-            <div id="calculationContainer">
+        </div>
 
+        <!-- holds the post calculation / result form -->
+        <div id="resultContainer" class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div id="alignCenter">
+                        <img src="assets/images/TollTally Logo.png" class="card-img-top" id="logo">      
+                        <hr>   
+                    </div> 
+                    <div id="confirm" class="container"></div>
+                        <div id="calculated" class="container"></div>
+                        <div id="buttonDiv">
+                            <button id="calculateButton" type="button" class="btn btn-primary">Calculate Tolls</button>
+                            <button id="resetButton" type="button" class="btn btn-primary">Start Over</button>
+                            <button id="showDirectionsButton" type="button" class="btn btn-primary">Show Directions</button>
+                        </div>
+                        <div id="google">
+                            <table class="tbl-map">
+                                <tr>
+                                    <td><div id="map"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div id="panel-direction"></div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- holds the post calculation / result form -->
-            <div id="resultContainer">
+        </div>
 
-            </div>
-        </main>
-        <footer>
-            <p>Copyright Information</p>
-        </footer>
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- JQueryUI -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <!-- Local JS -->
-        <script src="assets/javascript/app.js"></script>
+        <script src="./assets/javascript/app.js"></script>
     </body>
 </html>
