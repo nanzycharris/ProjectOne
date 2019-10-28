@@ -32,72 +32,69 @@
             </div>
         </header>
         <div class="row"> <br> </div>
-        <main>
-            <div class="row">
-                <div class="col-md-6">
-                    <br>
-                    <!---The big logo image goes here-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <a href="https://www.youtube.com/watch?v=MYHmIsq19hY">
+                        <img id="thumbnail" src="assets/images/YouTubeThumbnail.jpg" alt="youTube"></a>
                 </div>
-                <form>
-                    <div class="wrapper">
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- Origin (starting location) input field -->
-                                <div class="form-group">
-                                    <label for="originInput">Starting Location:</label>
-                                    <input type="text" class="form-control" id="originInput"
-                                        aria-describedby="locationHelp" placeholder="Enter starting location">
-                                    <small id="locationHelp" class="form-text text-muted">We'll never share your
-                                        location
-                                        with
-                                        anyone
-                                        else.</small>
-                                </div>
-                            </div>
-                            <!-- Destination (ending location) input field -->
-                            <div class="col-sm-6">
-                                <div class=" form-group">
-                                    <label for="destinationInput">Ending Location:</label>
-                                    <input type="text" class="form-control" id="destinationInput"
-                                        placeholder="Enter ending location">
-                                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="wrapper">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Origin (starting location) input field -->
+                            <div class="form-group">
+                                <label for="originInput">Starting Location:</label>
+                                <input type="text" class="form-control" id="originInput" aria-describedby="locationHelp"
+                                    placeholder="Enter starting location">
+                                <small id="locationHelp" class="form-text text-muted">We'll never share your
+                                    location
+                                    with
+                                    anyone
+                                    else.</small>
                             </div>
                         </div>
-                        <!-- Frequency input field -->
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="frequencyInput">Trip Frequency:</label>
-                                    <input type="text" class="form-control" id="frequencyInput"
-                                        placeholder="Enter trip frequency">
-                                </div>
-                            </div>
-                            <!-- Duration input field -->
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="destinationInput">Frequency Duration:</label>
-                                    <input type="text" class="form-control" id="durationInput"
-                                        placeholder="Enter duration to calculate for">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                        <!-- Destination (ending location) input field -->
+                        <div class="col-sm-6">
+                            <div class=" form-group">
+                                <label for="destinationInput">Ending Location:</label>
+                                <input type="text" class="form-control" id="destinationInput"
+                                    placeholder="Enter ending location">
                             </div>
                         </div>
                     </div>
-                </form>
+                    <!-- Frequency input field -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="frequencyInput">Trip Frequency:</label>
+                                <input type="text" class="form-control" id="frequencyInput"
+                                    placeholder="Enter trip frequency">
+                            </div>
+                        </div>
+                        <!-- Duration input field -->
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="destinationInput">Total per:</label>
+                                <input type="text" class="form-control" id="durationInput"
+                                    placeholder="Enter duration to calculate for">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
 
     <!-- JQueryUI has autofill so we can use the for the origin and destination inputs -->
-    </div>
-    <footer>
 
-    </footer>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- JQueryUI -->
